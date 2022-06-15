@@ -32,7 +32,6 @@ const App = () => {
         null, null, null
       ])
     }
-
     const calculateWinner = (sqaures) => {
       const lines = [
         [0,1,2],
@@ -52,7 +51,7 @@ const App = () => {
       }
       return null;
     }
-
+    
     useEffect(() => {
       const winner = calculateWinner(markers);
       if(winner === "X"){
@@ -60,6 +59,9 @@ const App = () => {
         resetMarkers()
       }else if(winner === "O"){
         alert("Player O Won")
+        resetMarkers()
+      }else if(markers[0] && markers[1] && markers[2] && markers[3] && markers[4] && markers[5] && markers[6] && markers[7] && markers[8] != null){
+        alert("Draw")
         resetMarkers()
       }
     }, [markers]) 
@@ -128,7 +130,7 @@ const App = () => {
 
       </View>
       <Pressable style={styles.cancelBTN} onPress={resetMarkers}>
-        <Image source={require("./assets/replay.png")} style={styles.cancelIcon}></Image>
+        <Image source={require("./assets/reset.png")} style={styles.cancelIcon}></Image>
       </Pressable>
     </SafeAreaView>
   );
